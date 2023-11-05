@@ -1,0 +1,32 @@
+behaviors:
+  SoccerTwos:
+    trainer_type: poca
+    hyperparameters:
+      batch_size: 5000
+      buffer_size: 50000
+      learning_rate: 0.001
+      beta: 0.005
+      epsilon: 0.25
+      lambd: 0.93
+      num_epoch: 10
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: false
+      hidden_units: 256
+      num_layers: 3
+      vis_encode_type: match3
+    reward_signals:
+      extrinsic:
+        gamma: 0.98
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 2000000000
+    time_horizon: 500
+    summary_freq: 10000
+    self_play:
+      save_steps: 50000
+      team_change: 20000
+      swap_steps: 10000
+      window: 10
+      play_against_latest_model_ratio: 0.55
+      initial_elo: 1200.0
